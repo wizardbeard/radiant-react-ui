@@ -118,7 +118,7 @@ const Index = () => {
               <a href="/components">View Components</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="https://docs.lovable.dev/" target="_blank" rel="noopener noreferrer">
+              <a href="https://wizardbeard.github.io/radiant-react-ui/?path=/docs/introduction--docs" target="_blank" rel="noopener noreferrer">
                 Read Documentation
               </a>
             </Button>
