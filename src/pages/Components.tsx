@@ -459,6 +459,12 @@ const Components = () => {
               npm run storybook
             </code>
           </div>
+
+          <footer className="mt-16 pt-8 border-t border-border text-center">
+            <p className="text-sm text-muted-foreground">
+              © 2025 The Wizard & The Wyrd, LLC
+            </p>
+          </footer>
         </div>
       </div>
     </div>
