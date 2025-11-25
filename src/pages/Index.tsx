@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Book, Package, Palette, Code } from "lucide-react";
+import { Book, Package, Palette, Code, Github } from "lucide-react";
 
 const Index = () => {
   return (
@@ -119,6 +119,12 @@ const Index = () => {
             <Button size="lg" variant="outline" asChild>
               <a href="https://wizardbeard.github.io/radiant-react-ui/?path=/docs/introduction--docs" target="_blank" rel="noopener noreferrer">
                 Read Documentation
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="https://github.com/wizardbeard/radiant-react-ui" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <Github size={20} />
+                wizardbeard/radiant-react-ui
               </a>
             </Button>
           </div>
