@@ -408,7 +408,7 @@ const Components = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="grain-subtle">
+                <Card className="grain-subtle bg-muted">
                   <CardHeader>
                     <CardTitle>Subtle Grain</CardTitle>
                     <CardDescription>Lighter texture overlay</CardDescription>
