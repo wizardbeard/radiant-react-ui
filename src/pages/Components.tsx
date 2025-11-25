@@ -356,7 +356,88 @@ const Components = () => {
             </div>
           </ComponentSection>
 
-          <div className="mt-12 p-6 bg-muted/50 rounded-lg text-center">
+          <ComponentSection
+            title="Grainy Textures"
+            description="Synthwave-style grainy texture overlays"
+          >
+            <ExampleBlock 
+              title="Grainy Buttons"
+              code={`<Button className="grain">Default Grain</Button>
+<Button variant="secondary" className="grain">Secondary Grain</Button>
+<Button variant="destructive" className="grain-subtle">Subtle Grain</Button>`}
+            >
+              <Button className="grain">Default Grain</Button>
+              <Button variant="secondary" className="grain">Secondary Grain</Button>
+              <Button variant="destructive" className="grain-subtle">Subtle Grain</Button>
+              <Button variant="outline" className="grain-subtle">Outline Subtle</Button>
+            </ExampleBlock>
+
+            <ExampleBlock 
+              title="Grainy Cards"
+              code={`<Card className="grain">
+  <CardHeader>
+    <CardTitle>Grainy Card</CardTitle>
+    <CardDescription>With texture overlay</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Content with grain effect</p>
+  </CardContent>
+</Card>`}
+            >
+              <div className="grid md:grid-cols-2 gap-4 w-full">
+                <Card className="grain">
+                  <CardHeader>
+                    <CardTitle>Full Grain</CardTitle>
+                    <CardDescription>Prominent texture overlay</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">This card has the .grain class applied for a more prominent texture effect.</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="grain-subtle">
+                  <CardHeader>
+                    <CardTitle>Subtle Grain</CardTitle>
+                    <CardDescription>Lighter texture overlay</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">This card uses .grain-subtle for a more refined texture.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </ExampleBlock>
+
+            <ExampleBlock 
+              title="Grainy Badges & Panels"
+              code={`<Badge className="grain">Grainy Badge</Badge>
+<div className="grain p-4 bg-card rounded-lg">
+  Grainy panel content
+</div>`}
+            >
+              <div className="space-y-4 w-full">
+                <div className="flex gap-2 flex-wrap">
+                  <Badge className="grain">Default Grain</Badge>
+                  <Badge variant="secondary" className="grain">Secondary Grain</Badge>
+                  <Badge variant="destructive" className="grain-subtle">Destructive Subtle</Badge>
+                  <Badge variant="outline" className="grain-subtle">Outline Subtle</Badge>
+                </div>
+                <div className="grain p-6 bg-card rounded-lg border">
+                  <h4 className="font-semibold mb-2">Grainy Panel</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Apply grain classes to any container to add synthwave-style texture effects.
+                  </p>
+                </div>
+                <div className="grain-subtle p-6 bg-muted rounded-lg">
+                  <h4 className="font-semibold mb-2">Subtle Grain Panel</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Use grain-subtle for a more refined, understated texture.
+                  </p>
+                </div>
+              </div>
+            </ExampleBlock>
+          </ComponentSection>
+
+          <div className="mt-12 p-6 bg-muted/50 rounded-lg text-center grain-subtle">
             <h3 className="text-lg font-semibold mb-2 text-foreground">Want to see more?</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Run Storybook for interactive documentation and all component variations
