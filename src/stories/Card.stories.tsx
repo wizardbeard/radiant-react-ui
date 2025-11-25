@@ -58,3 +58,45 @@ export const WithoutFooter: Story = {
     </Card>
   ),
 };
+
+export const WithGrainEffect: Story = {
+  render: () => (
+    <Card className="grain w-[350px]">
+      <CardHeader>
+        <CardTitle>Grainy Card</CardTitle>
+        <CardDescription>Card with grain texture effect</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>This card features a subtle grainy texture overlay that adds depth and a retro aesthetic.</p>
+      </CardContent>
+    </Card>
+  ),
+};
+
+export const WithBlueGlow: Story = {
+  render: () => (
+    <Card className="glow-blue w-[350px]">
+      <CardHeader>
+        <CardTitle>Neon Glow Card</CardTitle>
+        <CardDescription>Card with electric blue glow</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>This card features an animated neon blue glow effect for that authentic synthwave vibe.</p>
+      </CardContent>
+    </Card>
+  ),
+};
+
+export const WithGrainAndGlow: Story = {
+  render: () => (
+    <Card className="grain glow-cyan w-[350px]">
+      <CardHeader>
+        <CardTitle>Combined Effects</CardTitle>
+        <CardDescription>Grain texture + cyan glow</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p>Combining grainy textures with neon glows creates the ultimate synthwave aesthetic.</p>
+      </CardContent>
+    </Card>
+  ),
+};
