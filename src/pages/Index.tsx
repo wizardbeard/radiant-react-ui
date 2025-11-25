@@ -114,8 +114,14 @@ const Index = () => {
           </div>
 
           <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg">View Components</Button>
-            <Button size="lg" variant="outline">Read Documentation</Button>
+            <Button size="lg" asChild>
+              <a href="/components">View Components</a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <a href="https://docs.lovable.dev/" target="_blank" rel="noopener noreferrer">
+                Read Documentation
+              </a>
+            </Button>
           </div>
         </div>
       </div>
