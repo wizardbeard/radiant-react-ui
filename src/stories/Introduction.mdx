@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+# Design System
+
+Welcome to our React design system built with **Tailwind CSS** and **shadcn/ui**.
+
+## Overview
+
+This design system provides a collection of reusable components styled with Tailwind CSS. All components follow consistent design tokens and are fully customizable through the design system configuration.
+
+## Design Tokens
+
+All colors, spacing, and styles are defined using semantic tokens in:
+- `src/index.css` - CSS variables for colors (HSL format)
+- `tailwind.config.ts` - Tailwind configuration
+
+## Components
+
+Browse the available components in the sidebar. Each component includes:
+- **Interactive examples** - Try different props and variations
+- **Documentation** - Learn about available props and usage
+- **Code examples** - Copy-paste ready code snippets
+
+## Getting Started
+
+To use a component in your project:
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+function MyComponent() {
+  return <Button variant="default">Click me</Button>;
+}
+```
+
+## Customization
+
+To customize the design system:
+1. Edit color tokens in `src/index.css`
+2. Adjust Tailwind configuration in `tailwind.config.ts`
+3. Modify component variants in the component files
+
+All components will automatically inherit your design system changes.

@@ -1,4 +1,6 @@
-# Welcome to your Lovable project
+# React Design System
+
+A modern component library built with React, Tailwind CSS, and Storybook.
 
 ## Project info
 
@@ -59,6 +61,42 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Storybook
+
+## Storybook
+
+This project includes Storybook for component development and documentation.
+
+### Running Storybook
+
+First, add these scripts to your `package.json`:
+
+```json
+"scripts": {
+  "storybook": "storybook dev -p 6006",
+  "build-storybook": "storybook build"
+}
+```
+
+Then run:
+
+```bash
+npm run storybook
+```
+
+Storybook will open at `http://localhost:6006` where you can browse and interact with all components.
+
+### Available Components
+
+- Button (multiple variants and sizes)
+- Card (with header, content, footer)
+- Input (text, email, password, etc.)
+- Badge (status indicators)
+- Checkbox
+- Switch
+- And more...
+
+Each component has interactive stories showing different variations and use cases.
 
 ## How can I deploy this project?
 
