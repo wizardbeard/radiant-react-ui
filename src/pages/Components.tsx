@@ -19,12 +19,19 @@ const ComponentSection = ({ title, description, children }: { title: string; des
   </div>
 );
 
-const ExampleBlock = ({ title, children }: { title: string; children: React.ReactNode }) => (
+const ExampleBlock = ({ title, code, children }: { title: string; code?: string; children: React.ReactNode }) => (
   <div className="border rounded-lg p-6 bg-card">
     <h3 className="text-lg font-semibold mb-4 text-foreground">{title}</h3>
-    <div className="flex flex-wrap gap-4 items-center">
+    <div className="flex flex-wrap gap-4 items-center mb-4">
       {children}
     </div>
+    {code && (
+      <div className="mt-4 pt-4 border-t">
+        <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
+          <code className="text-foreground">{code}</code>
+        </pre>
+      </div>
+    )}
   </div>
 );
 
@@ -50,7 +57,15 @@ const Components = () => {
             title="Buttons"
             description="Primary actions and interactive elements"
           >
-            <ExampleBlock title="Variants">
+            <ExampleBlock 
+              title="Variants"
+              code={`<Button variant="default">Default</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>`}
+            >
               <Button variant="default">Default</Button>
               <Button variant="secondary">Secondary</Button>
               <Button variant="destructive">Destructive</Button>
@@ -59,13 +74,22 @@ const Components = () => {
               <Button variant="link">Link</Button>
             </ExampleBlock>
 
-            <ExampleBlock title="Sizes">
+            <ExampleBlock 
+              title="Sizes"
+              code={`<Button size="sm">Small</Button>
+<Button size="default">Default</Button>
+<Button size="lg">Large</Button>`}
+            >
               <Button size="sm">Small</Button>
               <Button size="default">Default</Button>
               <Button size="lg">Large</Button>
             </ExampleBlock>
 
-            <ExampleBlock title="States">
+            <ExampleBlock 
+              title="States"
+              code={`<Button>Active</Button>
+<Button disabled>Disabled</Button>`}
+            >
               <Button>Active</Button>
               <Button disabled>Disabled</Button>
             </ExampleBlock>
@@ -75,29 +99,47 @@ const Components = () => {
             title="Cards"
             description="Containers for content and actions"
           >
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                  <CardDescription>Card description goes here</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">This is the card content area.</p>
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Save</Button>
-                </CardFooter>
-              </Card>
+            <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Card Title</CardTitle>
+                    <CardDescription>Card description goes here</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">This is the card content area.</p>
+                  </CardContent>
+                  <CardFooter className="flex justify-between">
+                    <Button variant="outline">Cancel</Button>
+                    <Button>Save</Button>
+                  </CardFooter>
+                </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Simple Card</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">A card without description or footer.</p>
-                </CardContent>
-              </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Simple Card</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm">A card without description or footer.</p>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="border-t pt-4">
+                <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
+                  <code className="text-foreground">{`<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Content goes here</p>
+  </CardContent>
+  <CardFooter>
+    <Button>Action</Button>
+  </CardFooter>
+</Card>`}</code>
+                </pre>
+              </div>
             </div>
           </ComponentSection>
 
@@ -105,7 +147,21 @@ const Components = () => {
             title="Inputs"
             description="Form inputs for user data"
           >
-            <ExampleBlock title="Input Types">
+            <ExampleBlock 
+              title="Input Types"
+              code={`<div className="space-y-2">
+  <Label htmlFor="text">Text Input</Label>
+  <Input id="text" placeholder="Enter text..." />
+</div>
+<div className="space-y-2">
+  <Label htmlFor="email">Email Input</Label>
+  <Input id="email" type="email" placeholder="email@example.com" />
+</div>
+<div className="space-y-2">
+  <Label htmlFor="password">Password Input</Label>
+  <Input id="password" type="password" />
+</div>`}
+            >
               <div className="w-full max-w-sm space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="text-input">Text Input</Label>
@@ -131,7 +187,13 @@ const Components = () => {
             title="Badges"
             description="Status indicators and labels"
           >
-            <ExampleBlock title="Variants">
+            <ExampleBlock 
+              title="Variants"
+              code={`<Badge>Default</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="destructive">Destructive</Badge>
+<Badge variant="outline">Outline</Badge>`}
+            >
               <Badge>Default</Badge>
               <Badge variant="secondary">Secondary</Badge>
               <Badge variant="destructive">Destructive</Badge>
@@ -143,7 +205,17 @@ const Components = () => {
             title="Checkboxes & Switches"
             description="Boolean input controls"
           >
-            <ExampleBlock title="Checkboxes">
+            <ExampleBlock 
+              title="Checkboxes"
+              code={`<div className="flex items-center space-x-2">
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">Accept terms</Label>
+</div>
+<div className="flex items-center space-x-2">
+  <Checkbox id="newsletter" defaultChecked />
+  <Label htmlFor="newsletter">Subscribe</Label>
+</div>`}
+            >
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <Checkbox id="checkbox-1" />
@@ -166,7 +238,17 @@ const Components = () => {
               </div>
             </ExampleBlock>
 
-            <ExampleBlock title="Switches">
+            <ExampleBlock 
+              title="Switches"
+              code={`<div className="flex items-center space-x-2">
+  <Switch id="notifications" />
+  <Label htmlFor="notifications">Enable notifications</Label>
+</div>
+<div className="flex items-center space-x-2">
+  <Switch id="autosave" defaultChecked />
+  <Label htmlFor="autosave">Auto-save</Label>
+</div>`}
+            >
               <div className="space-y-4">
                 <div className="flex items-center space-x-2">
                   <Switch id="switch-1" />
@@ -194,52 +276,84 @@ const Components = () => {
             title="Tabs"
             description="Organize content into tabbed sections"
           >
-            <Tabs defaultValue="tab1" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="tab1">Overview</TabsTrigger>
-                <TabsTrigger value="tab2">Details</TabsTrigger>
-                <TabsTrigger value="tab3">Settings</TabsTrigger>
-              </TabsList>
-              <TabsContent value="tab1" className="mt-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Overview</CardTitle>
-                    <CardDescription>General information and statistics</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      This is the overview tab content. Use tabs to organize related content.
-                    </p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              <TabsContent value="tab2" className="mt-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Details</CardTitle>
-                    <CardDescription>Detailed information</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      This is the details tab content with more specific information.
-                    </p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              <TabsContent value="tab3" className="mt-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Settings</CardTitle>
-                    <CardDescription>Configuration options</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      This is the settings tab where configuration options would go.
-                    </p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            </Tabs>
+            <div className="space-y-6">
+              <Tabs defaultValue="tab1" className="w-full">
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="tab1">Overview</TabsTrigger>
+                  <TabsTrigger value="tab2">Details</TabsTrigger>
+                  <TabsTrigger value="tab3">Settings</TabsTrigger>
+                </TabsList>
+                <TabsContent value="tab1" className="mt-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Overview</CardTitle>
+                      <CardDescription>General information and statistics</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        This is the overview tab content. Use tabs to organize related content.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                <TabsContent value="tab2" className="mt-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Details</CardTitle>
+                      <CardDescription>Detailed information</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        This is the details tab content with more specific information.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+                <TabsContent value="tab3" className="mt-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Settings</CardTitle>
+                      <CardDescription>Configuration options</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        This is the settings tab where configuration options would go.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+              <div className="border-t pt-4">
+                <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
+                  <code className="text-foreground">{`<Tabs defaultValue="tab1">
+  <TabsList>
+    <TabsTrigger value="tab1">Overview</TabsTrigger>
+    <TabsTrigger value="tab2">Details</TabsTrigger>
+  </TabsList>
+  <TabsContent value="tab1">
+    <Card>
+      <CardHeader>
+        <CardTitle>Overview</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>Content for tab 1</p>
+      </CardContent>
+    </Card>
+  </TabsContent>
+  <TabsContent value="tab2">
+    <Card>
+      <CardHeader>
+        <CardTitle>Details</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>Content for tab 2</p>
+      </CardContent>
+    </Card>
+  </TabsContent>
+</Tabs>`}</code>
+                </pre>
+              </div>
+            </div>
           </ComponentSection>
 
           <div className="mt-12 p-6 bg-muted/50 rounded-lg text-center">
