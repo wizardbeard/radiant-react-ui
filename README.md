@@ -1,111 +1,207 @@
-# React Design System
+# Radiant React Design System
 
-A modern component library built with React, Tailwind CSS, and Storybook.
+A modern, synthwave-inspired React component library featuring dark themes, neon glows, and retro-futuristic aesthetics. Built with React, TypeScript, Tailwind CSS, and fully documented in Storybook.
 
-## Project info
+[![npm version](https://img.shields.io/npm/v/@wizardbeard/radiant-react-ui.svg)](https://www.npmjs.com/package/@wizardbeard/radiant-react-ui)
+[![Storybook](https://img.shields.io/badge/Storybook-Live-ff4785)](https://wizardbeard.github.io/radiant-react-ui/)
 
-**URL**: https://lovable.dev/projects/25dccf1d-8802-4571-8af9-e43f4d3573a5
+## ✨ Features
 
-## How can I edit this code?
+- 🎨 **Synthwave Aesthetic** - Dark themes with electric blues, neon glows, and grainy textures
+- 🧩 **50+ Components** - Comprehensive collection built on Radix UI primitives
+- 📖 **Full Storybook Docs** - Interactive examples and usage guidelines
+- 🎯 **TypeScript First** - Full type safety and IntelliSense support
+- ⚡ **Tailwind CSS** - Utility-first styling with semantic design tokens
+- ♿ **Accessible** - WCAG compliant components with keyboard navigation
+- 🎭 **Customizable** - Easy theming through CSS variables
 
-There are several ways of editing your application.
+## 📦 Installation
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/25dccf1d-8802-4571-8af9-e43f4d3573a5) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install @wizardbeard/radiant-react-ui
 ```
 
-**Edit a file directly in GitHub**
+### Peer Dependencies
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Make sure you have these installed:
 
-**Use GitHub Codespaces**
+```bash
+npm install react react-dom
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🚀 Quick Start
 
-## What technologies are used for this project?
+### 1. Import Styles
 
-This project is built with:
+Add the component styles to your app's entry point (e.g., `main.tsx` or `App.tsx`):
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- Storybook
+```tsx
+import '@wizardbeard/radiant-react-ui/dist/style.css';
+```
 
-## Storybook
+### 2. Configure Tailwind
 
-This project includes Storybook for component development and documentation.
+Update your `tailwind.config.ts` to include the design system's paths:
 
-### Running Storybook
-
-First, add these scripts to your `package.json`:
-
-```json
-"scripts": {
-  "storybook": "storybook dev -p 6006",
-  "build-storybook": "storybook build"
+```ts
+export default {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@wizardbeard/radiant-react-ui/dist/**/*.js'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))"
+        },
+        // ... add other semantic tokens
+      }
+    }
+  }
 }
 ```
 
-Then run:
+### 3. Add CSS Variables
 
-```bash
-npm run storybook
+Include these CSS variables in your `index.css`:
+
+```css
+:root {
+  --background: 220 40% 5%;
+  --foreground: 210 40% 98%;
+  --primary: 199 100% 50%;
+  --primary-foreground: 220 40% 5%;
+  /* ... see full token list in Storybook docs */
+}
 ```
 
-Storybook will open at `http://localhost:6006` where you can browse and interact with all components.
+### 4. Use Components
+
+```tsx
+import { Button, Card, CardHeader, CardTitle, CardContent } from '@wizardbeard/radiant-react-ui';
+
+function App() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome to Radiant</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button variant="default">Get Started</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+## 📚 Documentation
+
+### Storybook
+
+Browse the full component library with interactive examples:
+
+**[View Storybook Documentation](https://wizardbeard.github.io/radiant-react-ui/)**
+
+The Storybook includes:
+- Component API documentation
+- Interactive props controls
+- Usage examples and code snippets
+- Design guidelines and best practices
+- Theming and customization guides
 
 ### Available Components
 
-- Button (multiple variants and sizes)
-- Card (with header, content, footer)
-- Input (text, email, password, etc.)
-- Badge (status indicators)
-- Checkbox
-- Switch
-- And more...
+- **Form Controls**: Button, Input, Textarea, Select, Checkbox, Switch, Radio, Slider
+- **Data Display**: Card, Table, Badge, Avatar, Tooltip, Progress, Skeleton
+- **Navigation**: Tabs, Breadcrumb, Dropdown Menu, Navigation Menu, Sidebar
+- **Feedback**: Alert, Dialog, Toast, Alert Dialog, Drawer, Sheet
+- **Layout**: Separator, Scroll Area, Resizable, Aspect Ratio
+- **Advanced**: Command, Context Menu, Hover Card, Popover, Calendar, Date Picker
 
-Each component has interactive stories showing different variations and use cases.
+## 🎨 Theming
 
-## How can I deploy this project?
+The design system uses semantic color tokens that can be customized through CSS variables. All colors use HSL format for easy manipulation.
 
-Simply open [Lovable](https://lovable.dev/projects/25dccf1d-8802-4571-8af9-e43f4d3573a5) and click on Share -> Publish.
+```css
+:root {
+  /* Primary colors */
+  --primary: 199 100% 50%;        /* Electric blue */
+  --secondary: 280 80% 60%;       /* Purple */
+  --accent: 180 100% 50%;         /* Cyan */
+  
+  /* State colors */
+  --destructive: 340 100% 60%;    /* Neon pink/magenta */
+  --success: 142 76% 36%;
+  --warning: 38 92% 50%;
+  
+  /* Effects */
+  --noise-opacity: 0.03;
+  --glow-intensity: 0.6;
+}
+```
 
-## Can I connect a custom domain to my Lovable project?
+See the [Theming Guide](https://wizardbeard.github.io/radiant-react-ui/?path=/docs/theming--docs) for complete customization options.
 
-Yes, you can!
+## 🛠 Development
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Prerequisites
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Node.js 18+ and npm
+- React 18+
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/wizardbeard/radiant-react-ui.git
+cd radiant-react-ui
+
+# Install dependencies
+npm install
+
+# Run Storybook
+npm run storybook
+
+# Build the library
+npm run build:lib
+
+# Build Storybook for deployment
+npm run build-storybook
+```
+
+### Project Structure
+
+```
+radiant-react-ui/
+├── src/
+│   ├── components/ui/     # Component library
+│   ├── stories/           # Storybook stories
+│   ├── pages/             # Demo pages
+│   └── index.css          # Design tokens
+├── .storybook/            # Storybook configuration
+└── dist/                  # Built library output
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+MIT © 2025 The Wizard & The Wyrd, LLC
+
+## 🔗 Links
+
+- [Storybook Documentation](https://wizardbeard.github.io/radiant-react-ui/)
+- [GitHub Repository](https://github.com/wizardbeard/radiant-react-ui)
+- [npm Package](https://www.npmjs.com/package/@wizardbeard/radiant-react-ui)
+- [Report Issues](https://github.com/wizardbeard/radiant-react-ui/issues)
+
+---
+
+Built with ⚡ by [The Wizard & The Wyrd, LLC](https://github.com/wizardbeard)
