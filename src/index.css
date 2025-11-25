@@ -38,6 +38,10 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    --glow-blue: 200 100% 55%;
+    --glow-pink: 320 100% 60%;
+    --glow-cyan: 180 100% 50%;
+
     --sidebar-background: 260 40% 10%;
 
     --sidebar-foreground: 300 100% 90%;
@@ -83,6 +87,9 @@ All colors MUST be HSL.
     --border: 280 70% 20%;
     --input: 280 70% 18%;
     --ring: 320 100% 65%;
+    --glow-blue: 200 100% 60%;
+    --glow-pink: 320 100% 65%;
+    --glow-cyan: 180 100% 55%;
     --sidebar-background: 260 45% 7%;
     --sidebar-foreground: 300 100% 95%;
     --sidebar-primary: 200 100% 60%;
@@ -126,5 +133,63 @@ All colors MUST be HSL.
     background-blend-mode: overlay, normal;
     background-size: 200px, 100%;
     background-repeat: repeat, no-repeat;
+  }
+  
+  .glow-blue {
+    box-shadow: 
+      0 0 20px hsla(var(--glow-blue) / 0.5),
+      0 0 40px hsla(var(--glow-blue) / 0.3),
+      0 0 60px hsla(var(--glow-blue) / 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .glow-blue:hover {
+    box-shadow: 
+      0 0 30px hsla(var(--glow-blue) / 0.7),
+      0 0 60px hsla(var(--glow-blue) / 0.5),
+      0 0 90px hsla(var(--glow-blue) / 0.3);
+  }
+  
+  .glow-pink {
+    box-shadow: 
+      0 0 20px hsla(var(--glow-pink) / 0.5),
+      0 0 40px hsla(var(--glow-pink) / 0.3),
+      0 0 60px hsla(var(--glow-pink) / 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .glow-pink:hover {
+    box-shadow: 
+      0 0 30px hsla(var(--glow-pink) / 0.7),
+      0 0 60px hsla(var(--glow-pink) / 0.5),
+      0 0 90px hsla(var(--glow-pink) / 0.3);
+  }
+  
+  .glow-cyan {
+    box-shadow: 
+      0 0 20px hsla(var(--glow-cyan) / 0.5),
+      0 0 40px hsla(var(--glow-cyan) / 0.3),
+      0 0 60px hsla(var(--glow-cyan) / 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .glow-cyan:hover {
+    box-shadow: 
+      0 0 30px hsla(var(--glow-cyan) / 0.7),
+      0 0 60px hsla(var(--glow-cyan) / 0.5),
+      0 0 90px hsla(var(--glow-cyan) / 0.3);
+  }
+  
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.3);
+    }
   }
 }

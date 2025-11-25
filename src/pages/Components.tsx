@@ -366,10 +366,23 @@ const Components = () => {
 <Button variant="secondary" className="grain">Secondary Grain</Button>
 <Button variant="destructive" className="grain-subtle">Subtle Grain</Button>`}
             >
-              <Button className="grain">Default Grain</Button>
-              <Button variant="secondary" className="grain">Secondary Grain</Button>
-              <Button variant="destructive" className="grain-subtle">Subtle Grain</Button>
-              <Button variant="outline" className="grain-subtle">Outline Subtle</Button>
+              <Button className="grain glow-blue">Default Grain</Button>
+              <Button variant="secondary" className="grain glow-blue">Secondary Grain</Button>
+              <Button variant="destructive" className="grain-subtle glow-pink">Subtle Grain</Button>
+              <Button variant="outline" className="grain-subtle glow-cyan">Outline Subtle</Button>
+            </ExampleBlock>
+
+            <ExampleBlock 
+              title="Neon Glow Effects"
+              code={`<Button className="glow-blue">Blue Glow</Button>
+<Button variant="destructive" className="glow-pink">Pink Glow</Button>
+<Button className="glow-cyan">Cyan Glow</Button>
+<Button className="glow-blue glow-pulse">Pulsing Glow</Button>`}
+            >
+              <Button className="glow-blue">Blue Glow</Button>
+              <Button variant="destructive" className="glow-pink">Pink Glow</Button>
+              <Button className="glow-cyan">Cyan Glow</Button>
+              <Button className="glow-blue glow-pulse">Pulsing Glow</Button>
             </ExampleBlock>
 
             <ExampleBlock 
